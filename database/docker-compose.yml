@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  postgres:
+    container_name: project-name-postgres
+    image: 'postgres'
+    env_file:
+      - database.env
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data/
+      - ./init:/docker-entrypoint-initdb.d
+    expose:
+      - '5440'
+    ports:
+      - 5440:5432

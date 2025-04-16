@@ -1,0 +1,13 @@
+version: '3'
+services:
+  api:
+    container_name: datacrafted-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '4083:4044'
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
